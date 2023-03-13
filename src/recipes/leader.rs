@@ -230,7 +230,7 @@ fn ensure_path(zk: &ZooKeeper, path: &str) -> ZkResult<()> {
             &path[..i],
             vec![],
             Acl::open_unsafe().clone(),
-            CreateMode::Container,
+            CreateMode::Persistent,
         ) {
             Ok(_) | Err(ZkError::NodeExists) => {}
             Err(e) => return Err(e),
